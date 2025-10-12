@@ -152,7 +152,7 @@ nav:
     - Appendix B - Standard Scripts: appendices/standard-scripts.md
     - Appendix C - ERP Import Table: appendices/erp-import-table.md
     - Appendix D - Debug and Test: appendices/debugging.md
-    - Appendix E - Script Examples:
+    - Appendix E - Script examples:
       - appendices/examples/index.md
       - Property Validation: appendices/examples/property-validation.md
       - Property Derivation: appendices/examples/property-derivation.md
