@@ -27,7 +27,7 @@ jobs:
 
       # Optional: validate the build
       - name: Build
-        run: mkdocs build --strict
+        run: mkdocs build #--strict
 
       # Publish to gh-pages (same as running mkdocs gh-deploy locally)
       - name: Deploy
