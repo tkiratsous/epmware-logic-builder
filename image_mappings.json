@@ -1,0 +1,211 @@
+{
+  "placeholders": {
+    "c:\\epmware-logic-builder\\docs\\API\\packages\\hierarchy.md": [
+      [
+        "Node Existence Check",
+        2401,
+        2472
+      ],
+      [
+        "Branch Validation Example",
+        5874,
+        5945
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\events\\dimension-mapping\\index.md": [
+      [
+        "Create Dimension Mapping Script",
+        692,
+        783
+      ],
+      [
+        "Dimension Mapping Configuration",
+        935,
+        1019
+      ],
+      [
+        "Create Member Action Flow",
+        2772,
+        2851
+      ],
+      [
+        "Branch-Based Mapping Flow",
+        8272,
+        8345
+      ],
+      [
+        "Debug Messages for Mapping",
+        9563,
+        9640
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\getting-started\\creating-scripts.md": [
+      [
+        "Logic Builder Menu Access",
+        261,
+        337
+      ],
+      [
+        "Create New Script Button",
+        538,
+        608
+      ],
+      [
+        "Script Properties Dialog",
+        760,
+        834
+      ],
+      [
+        "Script Editor Interface",
+        2005,
+        2077
+      ],
+      [
+        "Save and Validate",
+        4596,
+        4659
+      ],
+      [
+        "Validation Success",
+        4790,
+        4852
+      ],
+      [
+        "Validation Error",
+        4947,
+        5005
+      ],
+      [
+        "Edit Script Properties",
+        5233,
+        5303
+      ],
+      [
+        "Debug Messages Report",
+        10240,
+        10308
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\getting-started\\index.md": [
+      [
+        "Logic Builder Module Interface",
+        527,
+        606
+      ],
+      [
+        "Security Provisioning Screen",
+        1663,
+        1738
+      ],
+      [
+        "Logic Builder Script Editor",
+        2586,
+        2652
+      ],
+      [
+        "Create New Script Dialog",
+        3096,
+        3166
+      ],
+      [
+        "Script Validation Results",
+        4302,
+        4370
+      ],
+      [
+        "Property Validation Configuration",
+        4651,
+        4736
+      ],
+      [
+        "Debug Messages Report",
+        6590,
+        6658
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\getting-started\\script-structure.md": [
+      [
+        "Debug Messages Report",
+        5898,
+        5966
+      ],
+      [
+        "Script Validation",
+        8470,
+        8538
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\getting-started\\script-types.md": [
+      [
+        "Dimension Mapping Configuration",
+        1687,
+        1768
+      ],
+      [
+        "Property Mapping Configuration",
+        2296,
+        2375
+      ],
+      [
+        "Pre Hierarchy Actions Configuration",
+        2765,
+        2854
+      ],
+      [
+        "Property Derivations Configuration",
+        3641,
+        3728
+      ],
+      [
+        "Property Validations Configuration",
+        4079,
+        4166
+      ],
+      [
+        "On Submit Workflow Configuration",
+        4515,
+        4598
+      ],
+      [
+        "Workflow Custom Task Configuration",
+        5318,
+        5405
+      ],
+      [
+        "Deployment Tasks Configuration",
+        5880,
+        5959
+      ],
+      [
+        "ERP Interface Tasks Configuration",
+        6416,
+        6495
+      ],
+      [
+        "Export Tasks Configuration",
+        7199,
+        7270
+      ]
+    ],
+    "c:\\epmware-logic-builder\\docs\\getting-started\\security-provisioning.md": [
+      [
+        "Security Provisioning Navigation",
+        703,
+        793
+      ],
+      [
+        "Security Group Selection",
+        972,
+        1046
+      ],
+      [
+        "Logic Builder Module Access",
+        1405,
+        1485
+      ]
+    ]
+  },
+  "suggestions": {},
+  "manual_mappings": {},
+  "instructions": "Edit the 'manual_mappings' section to override suggestions. Format: {'file:placeholder': 'image_name'}"
+}

@@ -1,0 +1,168 @@
+# mkdocs.yml - Logic Builder Guide
+site_name: EPMware Logic Builder Guide
+site_description: Complete guide for creating and managing custom logic scripts in EPMware
+site_author: EPMware, Inc.
+site_url: https://tkiratsous.github.io/epmware-logic-builder-guide/
+
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  features:
+  - navigation.top
+  - navigation.indexes
+  - search.highlight
+  - search.share
+  - search.suggest
+  - content.code.copy
+  - content.tooltips
+  - navigation.footer
+  - toc.follow
+  - toc.integrate
+  
+  logo: assets/images/epmware-logo.png
+  favicon: assets/images/favicon.ico
+
+extra_css:
+  - assets/css/custom.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search:
+      lang: en
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+
+# Navigation structure
+nav:
+  - Home:
+    - index.md
+  
+  - Getting Started:
+    - getting-started/index.md
+    - Security Provisioning: getting-started/security-provisioning.md
+    - Creating Scripts: getting-started/creating-scripts.md
+    - Script Types: getting-started/script-types.md
+    - Script Structure: getting-started/script-structure.md
+  
+  - Script Events:
+    - events/index.md
+    - Dimension Mapping:
+      - events/dimension-mapping/index.md
+      - Input Parameters: events/dimension-mapping/input-parameters.md
+      - Output Parameters: events/dimension-mapping/output-parameters.md
+      - Examples: events/dimension-mapping/examples.md
+    - Property Mapping:
+      - events/property-mapping/index.md
+      - Configuration: events/property-mapping/configuration.md
+      - Examples: events/property-mapping/examples.md
+    - Property Derivations:
+      - events/property-derivations/index.md
+      - Configuration: events/property-derivations/configuration.md
+      - Examples: events/property-derivations/examples.md
+    - Property Validations:
+      - events/property-validations/index.md
+      - Standard Validations: events/property-validations/standard-validations.md
+      - Examples: events/property-validations/examples.md
+    - Hierarchy Actions:
+      - events/hierarchy-actions/index.md
+      - Pre-Hierarchy Actions: events/hierarchy-actions/pre-hierarchy.md
+      - Post-Hierarchy Actions: events/hierarchy-actions/post-hierarchy.md
+      - Seeded Scripts: events/hierarchy-actions/seeded-scripts.md
+    - Workflow Tasks:
+      - events/workflow/index.md
+      - On Submit Tasks: events/workflow/on-submit.md
+      - Custom Tasks: events/workflow/custom-tasks.md
+      - Request Line Approval: events/workflow/request-line-approval.md
+    - Deployment Tasks:
+      - events/deployment/index.md
+      - Pre-Deployment: events/deployment/pre-deployment.md
+      - Post-Deployment: events/deployment/post-deployment.md
+    - ERP Interface:
+      - events/erp-interface/index.md
+      - Pre-Import Tasks: events/erp-interface/pre-import.md
+      - Post-Import Tasks: events/erp-interface/post-import.md
+    - Export Tasks:
+      - events/export/index.md
+      - Pre-Export: events/export/pre-export.md
+      - Post-Export: events/export/post-export.md
+  
+  - API Reference:
+    - api/index.md
+    - Database Views:
+      - api/database-views/index.md
+      - Core Views: api/database-views/core-views.md
+      - Request Views: api/database-views/request-views.md
+    - Package APIs:
+      - api/packages/index.md
+      - In Memory Functions: api/packages/in-memory.md
+      - Email APIs: api/packages/email.md
+      - Request APIs: api/packages/request.md
+      - Hierarchy APIs: api/packages/hierarchy.md
+      - Statistics APIs: api/packages/statistics.md
+      - Application APIs: api/packages/application.md
+      - Workflow APIs: api/packages/workflow.md
+      - String APIs: api/packages/string.md
+      - Lookup APIs: api/packages/lookup.md
+      - Security APIs: api/packages/security.md
+      - Export APIs: api/packages/export.md
+      - Agent APIs: api/packages/agent.md
+  
+  - Appendices:
+    - appendices/index.md
+    - Appendix A - Action Codes: appendices/action-codes.md
+    - Appendix B - Standard Scripts: appendices/standard-scripts.md
+    - Appendix C - ERP Import Table: appendices/erp-import-table.md
+    - Appendix D - Debug and Test: appendices/debugging.md
+    - Appendix E - Script Examples:
+      - appendices/examples/index.md
+      - Property Validation: appendices/examples/property-validation.md
+      - Property Derivation: appendices/examples/property-derivation.md
+      - Dimension Mapping: appendices/examples/dimension-mapping.md
+      - Workflow Tasks: appendices/examples/workflow-tasks.md
+      - Hierarchy Actions: appendices/examples/hierarchy-actions.md
+      - Advanced Patterns: appendices/examples/advanced-patterns.md
+
+extra:
+  copyright: |
+    © 2025 EPMware, Inc. All rights reserved. | 
+    <a href="https://www.epmware.com">www.epmware.com</a> | 
+    408-614-0442
