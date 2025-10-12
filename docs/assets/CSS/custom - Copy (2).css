@@ -144,3 +144,42 @@
   background-color: var(--epmware-orange);
   color: white;
 }
+
+/* Fix navigation text cutoff */
+/* Allow text to wrap and prevent ellipsis truncation */
+.md-nav__link {
+  white-space: normal !important;
+  line-height: 1.4 !important;
+  height: auto !important;
+  min-height: 2rem !important;
+  padding: 0.3rem 0.6rem !important;
+}
+
+.md-nav__link .md-ellipsis {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  display: block !important;
+}
+
+/* For larger screens, allow more space for navigation text */
+@media (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 15rem; /* Increase from default 12.1rem if needed */
+  }
+  
+  .md-nav__link {
+    font-size: 0.7rem; /* Slightly smaller font if space is still tight */
+  }
+}
+
+/* Ensure nested navigation items also wrap properly */
+.md-nav__item--nested .md-nav__link {
+  white-space: normal !important;
+}
+
+/* Prevent cutoff in navigation item labels */
+.md-nav__item label.md-nav__link {
+  white-space: normal !important;
+  overflow: visible !important;
+}

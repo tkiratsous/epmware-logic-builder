@@ -1,0 +1,543 @@
+/* custom.css - EPMware Logic Builder Guide specific styling */
+
+/* EPMware brand colors and styling (same as admin guide) */
+:root {
+  --epmware-blue: #1976d2;
+  --epmware-orange: #ff9800;
+  --epmware-light-blue: #e3f2fd;
+  --epmware-dark-blue: #0d47a1;
+  --epmware-code-bg: #f5f5f5;
+  --epmware-code-border: #ddd;
+}
+
+/* Custom admonition for EPMware notes */
+.md-typeset .admonition.note {
+  border-color: var(--epmware-blue);
+}
+
+.md-typeset .admonition.note > .admonition-title {
+  background-color: var(--epmware-light-blue);
+  border-color: var(--epmware-blue);
+}
+
+/* Custom admonition for cautions */
+.md-typeset .admonition.warning {
+  border-color: var(--epmware-orange);
+}
+
+.md-typeset .admonition.warning > .admonition-title {
+  background-color: #fff3e0;
+  border-color: var(--epmware-orange);
+}
+
+/* Code block styling for PL/SQL */
+.md-typeset pre {
+  background-color: var(--epmware-code-bg);
+  border: 1px solid var(--epmware-code-border);
+  border-radius: 4px;
+}
+
+.md-typeset code {
+  background-color: var(--epmware-code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* SQL syntax highlighting enhancements */
+.language-sql .k { /* Keywords */
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.language-sql .s { /* Strings */
+  color: #008000;
+}
+
+.language-sql .c { /* Comments */
+  color: #808080;
+  font-style: italic;
+}
+
+/* Procedure steps styling */
+.md-typeset ol li {
+  margin-bottom: 0.8em;
+}
+
+.md-typeset ol li ol {
+  margin-top: 0.5em;
+}
+
+/* Image captions styling */
+.md-typeset figure figcaption,
+.md-typeset img + em {
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
+  text-align: center;
+}
+
+/* API parameter tables */
+.api-params table {
+  margin: 1rem 0;
+}
+
+.api-params th {
+  background-color: var(--epmware-light-blue);
+  color: var(--epmware-dark-blue);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.api-params td:first-child {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  color: var(--epmware-dark-blue);
+}
+
+/* Script type badges */
+.script-type {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-right: 0.5em;
+}
+
+.script-type.dimension-mapping {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.script-type.property-validation {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.script-type.workflow {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.script-type.deployment {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+/* Status icons and legends */
+.status-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: var(--md-code-bg-color);
+  border-radius: 0.2rem;
+}
+
+.status-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+}
+
+/* Field reference tables */
+.field-reference table {
+  margin: 1rem 0;
+}
+
+.field-reference th {
+  background-color: var(--epmware-light-blue);
+  color: var(--epmware-dark-blue);
+  font-weight: 600;
+}
+
+/* Input/Output parameter sections */
+.param-section {
+  border-left: 3px solid var(--epmware-blue);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.param-section h4 {
+  color: var(--epmware-dark-blue);
+  margin-top: 0;
+}
+
+/* Example code blocks */
+.example-code {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.example-code::before {
+  content: "Example";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: white;
+  padding: 0 5px;
+  color: var(--epmware-blue);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+/* API function signatures */
+.api-signature {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
+}
+
+/* Hide navigation scrollbar to prevent flash */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.md-sidebar--primary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* Print-friendly styles */
+@media print {
+  .md-header,
+  .md-sidebar,
+  .md-footer {
+    display: none !important;
+  }
+  
+  .md-main__inner {
+    margin: 0 !important;
+  }
+  
+  .md-content {
+    max-width: none !important;
+  }
+  
+  /* Ensure images print well */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Break pages at major headings */
+  h1 {
+    page-break-before: always;
+  }
+  
+  h1:first-child {
+    page-break-before: avoid;
+  }
+  
+  /* Keep code blocks together */
+  pre {
+    page-break-inside: avoid;
+  }
+}
+
+/* Mobile optimizations for field reference */
+@media (max-width: 768px) {
+  .field-reference table,
+  .api-params table {
+    font-size: 0.85rem;
+  }
+  
+  .md-typeset table:not([class]) td {
+    padding: 0.5rem 0.3rem;
+  }
+  
+  .api-signature {
+    font-size: 0.8em;
+    padding: 0.5rem;
+  }
+}
+
+/* Copy button styling for code blocks */
+.md-clipboard {
+  color: var(--epmware-blue);
+}
+
+.md-clipboard:hover {
+  color: var(--epmware-orange);
+}
+
+/* Enhanced search highlighting */
+.md-search-result mark {
+  background-color: var(--epmware-orange);
+  color: white;
+}
+
+/* Logic Builder specific icons */
+.lb-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+
+.lb-icon.script {
+  color: var(--epmware-blue);
+}
+
+.lb-icon.api {
+  color: var(--epmware-orange);
+}
+
+/* Syntax highlighting for PL/SQL specific constructs */
+.language-sql .n { /* Names/Identifiers */
+  color: #333;
+}
+
+.language-sql .o { /* Operators */
+  color: #666;
+}
+
+/* Collapsible sections for long code examples */
+details.code-details {
+  border: 1px solid var(--epmware-code-border);
+  border-radius: 4px;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+details.code-details summary {
+  background-color: var(--epmware-light-blue);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--epmware-dark-blue);
+}
+
+details.code-details summary:hover {
+  background-color: #d1e7fd;
+}
+
+details.code-details pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Action code badges */
+.action-code {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  margin: 0 0.2em;
+}
+
+/* Navigation enhancement for script types */
+.md-nav__item--nested > .md-nav__link::after {
+  color: var(--epmware-blue);
+}
+
+/* Custom grid cards for homepage */
+.grid.cards > ul > li {
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.grid.cards > ul > li:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   LEFT-ALIGNED LAYOUT (Material for MkDocs style)
+   ========================= */
+
+/* Set wider sidebar for desktop */
+@media (min-width: 76.25em) {
+  :root {
+    --md-sidebar-width: 380px; /* Increased width to prevent text cutoff */
+    --site-left-margin: 240px; /* ~3 inches offset from left edge */
+    --site-right-margin: 240px; /* ~3 inches right margin for content */
+  }
+}
+
+/* Desktop layout - align everything with left margin */
+@media (min-width: 76.25em) {
+  /* Remove container max-width to allow full width usage */
+  .md-grid {
+    max-width: none;
+    margin: 0;
+  }
+  
+  /* Header shifted right */
+  .md-header__inner {
+    padding: 0 1rem 0 calc(var(--site-left-margin, 240px) + 1rem);
+  }
+  
+  /* Remove logo button margins */
+  .md-header__button.md-logo {
+    margin: 0;
+    margin-right: 0.2rem;
+  }
+  
+  /* Sidebar positioning - shifted right */
+  .md-sidebar--primary {
+    position: fixed;
+    top: 0;
+    left: var(--site-left-margin, 240px);
+    width: var(--md-sidebar-width, 320px);
+    height: 100%;
+    z-index: 200;
+  }
+  
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    position: absolute;
+    top: 3.2rem; /* Account for header height */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    overflow-y: auto;
+  }
+  
+  .md-sidebar--primary .md-sidebar__inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 0.8rem 0 1rem; /* Reduced right padding for more text space */
+  }
+  
+  /* Main content positioning - account for left margin */
+  .md-main {
+    margin-left: calc(var(--site-left-margin, 240px) + var(--md-sidebar-width, 320px));
+  }
+  
+  .md-main__inner {
+    margin: 0;
+    max-width: none;
+  }
+  
+  /* Content area */
+  .md-content {
+    max-width: 61rem; /* Limit content width for readability */
+    margin: 0 var(--site-right-margin, 240px) 0 0; /* Add 3 inches right margin */
+    padding: 0 1rem;
+  }
+  
+  .md-content__inner {
+    margin: 0;
+    padding: 2.4rem 0 4rem;
+  }
+  
+  /* Footer alignment - shifted right */
+  .md-footer {
+    margin-left: calc(var(--site-left-margin, 240px) + var(--md-sidebar-width, 320px));
+  }
+  
+  .md-footer__inner {
+    padding: 0 1rem;
+  }
+  
+  /* Secondary sidebar (TOC) positioning if present */
+  .md-sidebar--secondary {
+    position: fixed;
+    top: 3.2rem;
+    right: 0;
+    width: 12.1rem;
+    height: 0;
+    z-index: 100;
+  }
+}
+
+/* Tablet layout adjustments */
+@media (min-width: 60em) and (max-width: 76.1875em) {
+  .md-header__inner {
+    padding: 0 4rem 0 4rem; /* Add balanced padding for tablets */
+  }
+  
+  .md-nav--primary {
+    margin-left: 3rem; /* Shift mobile nav drawer */
+  }
+  
+  .md-content {
+    padding: 0 1rem;
+    margin: 0 4rem 0 4rem; /* Add balanced margins for tablets */
+  }
+}
+
+/* Mobile layout - maintain default behavior */
+@media (max-width: 59.9375em) {
+  .md-header__inner {
+    padding: 0 0.4rem;
+  }
+  
+  .md-content {
+    padding: 0 0.8rem;
+  }
+}
+
+/* Prevent navigation label cutoff */
+@media (min-width: 60em) {
+  /* Ensure navigation items don't get cut off */
+  .md-nav__item {
+    overflow: visible !important;
+  }
+  
+  .md-nav__link,
+  .md-nav__item .md-nav__link .md-ellipsis,
+  .md-nav__item .md-nav__link span {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: none !important;
+    display: block;
+  }
+  
+  .md-nav__item .md-nav__link {
+    display: flex;
+    align-items: center;
+    padding-right: 0.6rem; /* Add right padding to prevent edge cutoff */
+  }
+  
+  /* For very long labels that need wrapping */
+  .md-nav__item .md-nav__link.allow-wrap,
+  .md-nav__item .md-nav__link.allow-wrap .md-ellipsis {
+    white-space: normal !important;
+    word-break: break-word;
+  }
+  
+  /* Ensure nested navigation items have proper spacing */
+  .md-nav__item--nested > .md-nav > .md-nav__list {
+    padding-left: 0.6rem;
+  }
+  
+  /* Prevent icon overlap with text */
+  .md-nav__link svg {
+    flex-shrink: 0;
+    margin-right: 0.4rem;
+  }
+  
+  /* Ensure expansion arrows don't cause cutoff */
+  .md-nav__item--nested > .md-nav__link::after {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 0.4rem;
+  }
+}
+
+/* Wide screen adjustments */
+@media (min-width: 88.25em) {
+  .md-content {
+    max-width: 66rem; /* Slightly wider content on very large screens */
+  }
+}
