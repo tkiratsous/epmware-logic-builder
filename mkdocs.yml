@@ -2,7 +2,7 @@
 site_name: EPMware Logic Builder Guide
 site_description: Complete guide for creating and managing custom logic scripts in EPMware
 site_author: EPMware, Inc.
-site_url: https://tkiratsous.github.io/epmware-logic-builder-guide/
+site_url: https://tkiratsous.github.io/epmware-logic-builder
 
 validation:
   nav:
