@@ -1,0 +1,36 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install MkDocs and plugins
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs mkdocs-material mkdocs-glightbox
+
+      # Optional: validate the build
+      - name: Build
+        run: mkdocs build --strict
+
+      # Publish to gh-pages (same as running mkdocs gh-deploy locally)
+      - name: Deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: mkdocs gh-deploy --force --clean --verbose
