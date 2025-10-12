@@ -1,11 +1,13 @@
-/* custom.css - EPMware specific styling */
+/* custom.css - EPMware Logic Builder Guide specific styling */
 
-/* EPMware brand colors and styling */
+/* EPMware brand colors and styling (same as admin guide) */
 :root {
   --epmware-blue: #1976d2;
   --epmware-orange: #ff9800;
   --epmware-light-blue: #e3f2fd;
   --epmware-dark-blue: #0d47a1;
+  --epmware-code-bg: #f5f5f5;
+  --epmware-code-border: #ddd;
 }
 
 /* Custom admonition for EPMware notes */
@@ -28,6 +30,35 @@
   border-color: var(--epmware-orange);
 }
 
+/* Code block styling for PL/SQL */
+.md-typeset pre {
+  background-color: var(--epmware-code-bg);
+  border: 1px solid var(--epmware-code-border);
+  border-radius: 4px;
+}
+
+.md-typeset code {
+  background-color: var(--epmware-code-bg);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+/* SQL syntax highlighting enhancements */
+.language-sql .k { /* Keywords */
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.language-sql .s { /* Strings */
+  color: #008000;
+}
+
+.language-sql .c { /* Comments */
+  color: #808080;
+  font-style: italic;
+}
+
 /* Procedure steps styling */
 .md-typeset ol li {
   margin-bottom: 0.8em;
@@ -46,6 +77,54 @@
   margin-top: 0.5rem;
   display: block;
   text-align: center;
+}
+
+/* API parameter tables */
+.api-params table {
+  margin: 1rem 0;
+}
+
+.api-params th {
+  background-color: var(--epmware-light-blue);
+  color: var(--epmware-dark-blue);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.api-params td:first-child {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  color: var(--epmware-dark-blue);
+}
+
+/* Script type badges */
+.script-type {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-right: 0.5em;
+}
+
+.script-type.dimension-mapping {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.script-type.property-validation {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.script-type.workflow {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.script-type.deployment {
+  background-color: #fff3e0;
+  color: #e65100;
 }
 
 /* Status icons and legends */
@@ -74,6 +153,47 @@
   background-color: var(--epmware-light-blue);
   color: var(--epmware-dark-blue);
   font-weight: 600;
+}
+
+/* Input/Output parameter sections */
+.param-section {
+  border-left: 3px solid var(--epmware-blue);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.param-section h4 {
+  color: var(--epmware-dark-blue);
+  margin-top: 0;
+}
+
+/* Example code blocks */
+.example-code {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.example-code::before {
+  content: "Example";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: white;
+  padding: 0 5px;
+  color: var(--epmware-blue);
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+/* API function signatures */
+.api-signature {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
 }
 
 /* Hide navigation scrollbar to prevent flash */
@@ -117,16 +237,27 @@
   h1:first-child {
     page-break-before: avoid;
   }
+  
+  /* Keep code blocks together */
+  pre {
+    page-break-inside: avoid;
+  }
 }
 
 /* Mobile optimizations for field reference */
 @media (max-width: 768px) {
-  .field-reference table {
+  .field-reference table,
+  .api-params table {
     font-size: 0.85rem;
   }
   
   .md-typeset table:not([class]) td {
     padding: 0.5rem 0.3rem;
+  }
+  
+  .api-signature {
+    font-size: 0.8em;
+    padding: 0.5rem;
   }
 }
 
@@ -143,4 +274,84 @@
 .md-search-result mark {
   background-color: var(--epmware-orange);
   color: white;
+}
+
+/* Logic Builder specific icons */
+.lb-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  margin-right: 0.3em;
+}
+
+.lb-icon.script {
+  color: var(--epmware-blue);
+}
+
+.lb-icon.api {
+  color: var(--epmware-orange);
+}
+
+/* Syntax highlighting for PL/SQL specific constructs */
+.language-sql .n { /* Names/Identifiers */
+  color: #333;
+}
+
+.language-sql .o { /* Operators */
+  color: #666;
+}
+
+/* Collapsible sections for long code examples */
+details.code-details {
+  border: 1px solid var(--epmware-code-border);
+  border-radius: 4px;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+details.code-details summary {
+  background-color: var(--epmware-light-blue);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--epmware-dark-blue);
+}
+
+details.code-details summary:hover {
+  background-color: #d1e7fd;
+}
+
+details.code-details pre {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Action code badges */
+.action-code {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  margin: 0 0.2em;
+}
+
+/* Navigation enhancement for script types */
+.md-nav__item--nested > .md-nav__link::after {
+  color: var(--epmware-blue);
+}
+
+/* Custom grid cards for homepage */
+.grid.cards > ul > li {
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.grid.cards > ul > li:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
