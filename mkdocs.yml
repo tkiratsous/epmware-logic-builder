@@ -73,7 +73,9 @@ plugins:
 
 # Navigation structure
 nav:
-  - Home:
+  - Documentation Center: https://docs.epmware.com
+  
+  - Logic Builder Guide Home:
     - index.md
   
   - Getting Started:
