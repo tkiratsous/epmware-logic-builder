@@ -1,306 +1,67 @@
-# Dimension Mapping Input Parameters
+# 🔽**Dimension Mapping Input Parameters**
 
-This page provides a comprehensive reference for all input parameters available in Dimension Mapping Logic Scripts. Understanding these parameters is essential for implementing custom mapping logic.
+This page provides a comprehensive reference for all input parameters available in Dimension Mapping Logic Scripts.<br/>
+Understanding these parameters is essential for implementing custom mapping logic.
 
-## Standard Input Parameters
+## Input Parameters
 
-These parameters are available in all Dimension Mapping scripts:
+The following table lists Input Parameters that are available for all Hierarchy Actions.
 
-### Session and User Context
 
-| Parameter | Type | Description | Example Value |
-|-----------|------|-------------|---------------|
-| `g_user_id` | NUMBER | Current user ID | 1001 |
-| `g_session_id` | NUMBER | Current session ID | 987654321 |
-| `g_request_id` | NUMBER | Current request ID (if applicable) | 5432 |
-| `g_request_line_id` | NUMBER | Request line ID (if applicable) | 12345 |
+| Input Parameter | Description |
+| --- | --- |
+| g_user_id | Current logged User ID |
+| g_lb_script_name | Logic Script Name being executed |
+| g_request_id | Request ID |
+| g_member_name | Member Name |
+| g_renamed_from_member_name | Original Member name before it was Renamed. Use this variable for the Rename Member action to get the original member’s name. |
+| g_parent_member_name | Parent Member’s Name |
+| g_prev_sibling_member_name | Previous Sibling Member Name |
+| g_moved_from_member_name | When a member is moved from a source parent member to the target parent member then this variable provides the member’s name of the source parent member. |
+| g_moved_to_member_name | When a member is moved from a source parent member to the target parent member then this variable provides the member’s name of the target parent member. |
+| g_array_member_name | Member Name of the associated Alias or Languages (Such as Default, English etc.) |
+| g_app_name | Application Name |
+| g_dim_name | Dimension Name |
+| g_dim_class_name | Dimension Class Name |
+| g_mapped_app_name | Mapped Application Name |
+| g_mapped_dim_name | Mapped Dimension Name |
+| g_wf_code | Workflow Code |
+| g_wf_stage_name | Workflow Stage Name (if request is submitted in the workflow) |
+| g_action_code | Request Line Action Code such as CMC, CMS (Create member as child / sibling), P (Edit Properties), RM (Rename Member)  and so on. See full list of Action Codes in [Appendix A](../../appendices/appendix_a_action-codes.md) |
+| g_action_name | Request Line Action Name such as Create member, Edit Properties, Rename Member and so on. See full list of Action Codes in [Appendix A](../../appendices/appendix_a_action-codes.md) |
+| g_req_rec | Request Header Record |
+| g_dim_rec | Dimension Record |
 
-### Application Context
+ ***Internal IDs*** 
+ 
+ 
+| Input Parameter | Description |
+| --- | --- |
+| g_request_line_id | Request Line ID |
+| g_hierarchy_id | Unique node id. Each combination of Parent Member/Member is given a unique internal numerical value called hierarchy_id |
+| g_member_id | Unique member id. Each member in EPMware is given a unique internal numerical value called member_id |
+| g_parent_member_id | Parent member’s Member ID |
+| g_moved_from_hierarchy_id | When a member is moved from a source parent member to the target parent member then this ID provides the hierarchy id of the source parent member. |
+| g_moved_from_member_id | When a member is moved from a source parent member to the target parent member then this ID provides the member id of the source parent member. |
+| g_moved_to_hierarchy_id | When a member is moved from a source parent member to the target parent member then this ID provides the hierarchy id of the target parent member. |
+| g_moved_to_member_id | When a member is moved from a source parent member to the target parent member, then this ID provides the member id of the target parent member. |
+| g_app_dimension_id | Application dimension ID |
+| g_app_id | Application ID |
+| g_prop_id | Property Configuration ID |
+| g_array_member_id | Member ID of the Associated alias members (referred internally in EPMware as Array Members) |
+| g_mapped_app_dimension_id | Used in Dimension and Property Mappings only. Dimension ID of the mapped application |
+| g_mapped_hierarchy_id | Used in Property Mapping. Hierarchy ID of the node in the mapped dimension |
+| g_wf_stage_task_id | Workflow Stage Task ID |
 
-| Parameter | Type | Description | Example Value |
-|-----------|------|-------------|---------------|
-| `g_src_app_id` | NUMBER | Source application ID | 100 |
-| `g_src_app_name` | VARCHAR2 | Source application name | "HFM_PROD" |
-| `g_tgt_app_id` | NUMBER | Target application ID | 200 |
-| `g_tgt_app_name` | VARCHAR2 | Target application name | "PLANNING_PROD" |
 
-### Dimension Context
 
-| Parameter | Type | Description | Example Value |
-|-----------|------|-------------|---------------|
-| `g_app_dimension_id` | NUMBER | Source dimension ID | 1234 |
-| `g_src_dim_name` | VARCHAR2 | Source dimension name | "Entity" |
-| `g_tgt_dim_id` | NUMBER | Target dimension ID | 5678 |
-| `g_tgt_dim_name` | VARCHAR2 | Target dimension name | "Entity" |
-| `g_dim_class_name` | VARCHAR2 | Dimension class name | "ENTITY" |
-
-## Action-Specific Parameters
-
-Parameters that vary based on the action being performed:
-
-### Hierarchy Action Code
-
-| Parameter | Type | Description | Possible Values |
-|-----------|------|-------------|-----------------|
-| `g_action_code` | VARCHAR2 | Hierarchy action being performed | CMC, CMS, DM, RNM, ZC, ISMC, ISMS, DSHM |
-
-### Member Information
-
-| Parameter | Type | Description | When Available |
-|-----------|------|-------------|----------------|
-| `g_member_id` | NUMBER | Source member ID | All actions |
-| `g_member_name` | VARCHAR2 | Source member name | All actions |
-| `g_parent_member_id` | NUMBER | Parent member ID | CMC, CMS, ZC, ISMC, ISMS |
-| `g_parent_member_name` | VARCHAR2 | Parent member name | CMC, CMS, ZC, ISMC, ISMS |
-| `g_new_member_name` | VARCHAR2 | New member name | RNM (Rename) |
-| `g_old_parent_member_name` | VARCHAR2 | Previous parent name | ZC (Move) |
-| `g_sort_order` | NUMBER | Member sort order | CMC, CMS, ISMC, ISMS |
-
-## Property-Related Parameters
-
-Parameters containing member property information:
-
-| Parameter | Type | Description | Example |
-|-----------|------|-------------|---------|
-| `g_node_data_storage` | VARCHAR2 | Data storage type | "STORE", "DYNAMIC_CALC", "LABEL_ONLY" |
-| `g_consolidation_method` | VARCHAR2 | Consolidation method | "ADDITION", "SUBTRACTION", "MULTIPLY" |
-| `g_two_pass_calc` | VARCHAR2 | Two-pass calculation flag | "Y" or "N" |
-| `g_alias_name` | VARCHAR2 | Member alias | "Total Revenue" |
-| `g_base_currency` | VARCHAR2 | Base currency | "USD" |
-
-## Workflow Context Parameters
-
-Available when mapping is triggered through workflow:
-
-| Parameter | Type | Description | Example |
-|-----------|------|-------------|---------|
-| `g_wf_stage_id` | NUMBER | Current workflow stage | 10 |
-| `g_wf_stage_name` | VARCHAR2 | Workflow stage name | "Initial Review" |
-| `g_wf_task_id` | NUMBER | Current task ID | 20 |
-| `g_wf_task_name` | VARCHAR2 | Task name | "Dimension Sync" |
-
-## Accessing Parameters
-
-### Basic Usage
-```sql
-DECLARE
-  l_source_member VARCHAR2(100);
-BEGIN
-  -- Access input parameters directly
-  l_source_member := ew_lb_api.g_member_name;
-  
-  IF ew_lb_api.g_action_code = 'CMC' THEN
-    -- Create member as child logic
-    DBMS_OUTPUT.PUT_LINE('Creating: ' || l_source_member);
-    DBMS_OUTPUT.PUT_LINE('Under parent: ' || ew_lb_api.g_parent_member_name);
-  END IF;
-END;
-```
-
-### Null Checking
-```sql
-BEGIN
-  -- Always check for NULL values
-  IF ew_lb_api.g_parent_member_name IS NOT NULL THEN
-    -- Safe to use parent
-    process_with_parent(ew_lb_api.g_parent_member_name);
-  ELSE
-    -- Handle root level members
-    process_root_member(ew_lb_api.g_member_name);
-  END IF;
-END;
-```
-
-### Debugging Parameters
-```sql
-DECLARE
-  PROCEDURE log_parameters IS
-  BEGIN
-    ew_debug.log('=== Dimension Mapping Parameters ===');
-    ew_debug.log('Action Code: ' || ew_lb_api.g_action_code);
-    ew_debug.log('Member: ' || ew_lb_api.g_member_name);
-    ew_debug.log('Parent: ' || NVL(ew_lb_api.g_parent_member_name, 'ROOT'));
-    ew_debug.log('Source App: ' || ew_lb_api.g_src_app_name);
-    ew_debug.log('Target App: ' || ew_lb_api.g_tgt_app_name);
-    ew_debug.log('Sort Order: ' || TO_CHAR(ew_lb_api.g_sort_order));
-  END log_parameters;
-BEGIN
-  log_parameters();
-  -- Continue with mapping logic
-END;
-```
-
-## Parameter Availability by Action
-
-Not all parameters are available for all actions:
-
-### Create Actions (CMC, CMS)
-✅ Available:
-- Member name
-- Parent member name
-- Sort order
-- All property parameters
-
-❌ Not available:
-- Old parent name
-- New member name
-
-### Delete Action (DM)
-✅ Available:
-- Member name
-- Member ID
-
-❌ Not available:
-- Parent member name
-- Sort order
-- Property parameters
-
-### Rename Action (RNM)
-✅ Available:
-- Member name (old)
-- New member name
-- Member ID
-
-❌ Not available:
-- Parent member name
-- Sort order
-
-### Move Action (ZC)
-✅ Available:
-- Member name
-- Parent member name (new)
-- Old parent member name
-- Sort order
-
-❌ Not available:
-- New member name
-
-## Advanced Parameter Usage
-
-### Conditional Logic Based on Parameters
-```sql
-BEGIN
-  -- Different logic for different dimension classes
-  CASE ew_lb_api.g_dim_class_name
-    WHEN 'ACCOUNT' THEN
-      handle_account_mapping();
-    WHEN 'ENTITY' THEN
-      handle_entity_mapping();
-    WHEN 'CUSTOM' THEN
-      handle_custom_mapping();
-    ELSE
-      -- Default handling
-      ew_hierarchy.set_dim_mapping_method(
-        p_mapping_method => 'SMARTSYNC',
-        x_status        => ew_lb_api.g_status,
-        x_message       => ew_lb_api.g_message
-      );
-  END CASE;
-END;
-```
-
-### Using Parameters for Validation
-```sql
-DECLARE
-  l_valid BOOLEAN := TRUE;
-  l_error_msg VARCHAR2(4000);
-BEGIN
-  -- Validate member name format
-  IF NOT REGEXP_LIKE(ew_lb_api.g_member_name, '^[A-Z][0-9]{5}$') THEN
-    l_valid := FALSE;
-    l_error_msg := 'Member name must match format: Letter + 5 digits';
-  END IF;
-  
-  -- Validate parent exists in target
-  IF ew_lb_api.g_parent_member_name IS NOT NULL THEN
-    IF ew_hierarchy.chk_member_exists(
-         p_app_dimension_id => ew_lb_api.g_tgt_dim_id,
-         p_member_name     => ew_lb_api.g_parent_member_name
-       ) = 'N' THEN
-      l_valid := FALSE;
-      l_error_msg := l_error_msg || '; Parent does not exist in target';
-    END IF;
-  END IF;
-  
-  IF NOT l_valid THEN
-    ew_lb_api.g_status := ew_lb_api.g_error;
-    ew_lb_api.g_message := l_error_msg;
-    RETURN;
-  END IF;
-END;
-```
-
-### Parameter-Based Transformations
-```sql
-DECLARE
-  l_prefix VARCHAR2(10);
-  l_suffix VARCHAR2(10);
-BEGIN
-  -- Determine prefix based on source application
-  l_prefix := CASE ew_lb_api.g_src_app_name
-                WHEN 'HFM_PROD' THEN 'HFM_'
-                WHEN 'ESSBASE_PROD' THEN 'ESS_'
-                ELSE ''
-              END;
-  
-  -- Add suffix based on dimension
-  l_suffix := CASE ew_lb_api.g_src_dim_name
-                WHEN 'Entity' THEN '_ENT'
-                WHEN 'Account' THEN '_ACC'
-                ELSE ''
-              END;
-  
-  -- Transform member name
-  ew_lb_api.g_out_tgt_new_member_name := 
-    l_prefix || ew_lb_api.g_member_name || l_suffix;
-END;
-```
-
-## Common Pitfalls
-
-### 1. Not Checking for NULL Values
-❌ Wrong:
-```sql
-IF ew_lb_api.g_parent_member_name = 'ROOT' THEN
-```
-
-✅ Correct:
-```sql
-IF NVL(ew_lb_api.g_parent_member_name, 'ROOT') = 'ROOT' THEN
-```
-
-### 2. Assuming Parameters Always Exist
-❌ Wrong:
-```sql
-l_length := LENGTH(ew_lb_api.g_new_member_name);
-```
-
-✅ Correct:
-```sql
-IF ew_lb_api.g_action_code = 'RNM' THEN
-  l_length := LENGTH(ew_lb_api.g_new_member_name);
-END IF;
-```
-
-### 3. Not Considering Action Context
-❌ Wrong:
-```sql
--- Always using parent member name
-create_in_target(ew_lb_api.g_parent_member_name);
-```
-
-✅ Correct:
-```sql
-IF ew_lb_api.g_action_code IN ('CMC', 'CMS', 'ZC') THEN
-  create_in_target(ew_lb_api.g_parent_member_name);
-END IF;
-```
 
 ## Next Steps
 
-- [Output Parameters](output-parameters.md) - Control mapping results
-- [Examples](examples.md) - Real-world parameter usage
-- [API Reference](../../api/) - Complete API documentation
+- [Dimension Mapping Output Parameters](output-parameters.md)
+- [Dimension Mapping Examples](examples.md)
+- [API Reference](../../api/index.md)
+- [Dimension Mapping APIs](../../api/packages/dimension_mapping_api.md)
 
 ---
 

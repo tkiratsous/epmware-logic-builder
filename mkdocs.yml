@@ -77,15 +77,14 @@ nav:
   
   - Logic Builder Guide Home:
     - index.md
-  
-  - Getting Started:
-    - getting-started/index.md
-    - Security Provisioning: getting-started/security-provisioning.md
-    - Creating Scripts: getting-started/creating-scripts.md
-    - Script Types: getting-started/script-types.md
-    - Script Structure: getting-started/script-structure.md
-  
-  - Script Events:
+    
+  - Security Provisioning: getting-started/security-provisioning.md
+  - Creating Logic Scripts: getting-started/creating-scripts.md
+  - Logic Script Types: getting-started/script-types.md
+  - Logic Script Associations: getting-started/logic-script-associations.md
+  - Logic Script Usage Report: getting-started/logic-script-usage-report.md
+  - Logic Builder Script Body: getting-started/logic-script-body.md
+  - Logic Script Events:
     - events/index.md
     - Dimension Mapping:
       - events/dimension-mapping/index.md
@@ -94,74 +93,90 @@ nav:
       - Examples: events/dimension-mapping/examples.md
     - Property Mapping:
       - events/property-mapping/index.md
-      - Configuration: events/property-mapping/configuration.md
+      - Input Parameters: events/property-mapping/input-parameters.md
+      - Output Parameters: events/property-mapping/output-parameters.md
       - Examples: events/property-mapping/examples.md
     - Property Derivations:
       - events/property-derivations/index.md
-      - Configuration: events/property-derivations/configuration.md
+      - Input Parameters: events/property-derivations/input-parameters.md
+      - Output Parameters: events/property-derivations/output-parameters.md
       - Examples: events/property-derivations/examples.md
     - Property Validations:
       - events/property-validations/index.md
-      - Standard Validations: events/property-validations/standard-validations.md
+      - Input Parameters: events/property-validations/input-parameters.md
+      - Output Parameters: events/property-validations/output-parameters.md
       - Examples: events/property-validations/examples.md
-    - Hierarchy Actions:
-      - events/hierarchy-actions/index.md
-      - Pre-Hierarchy Actions: events/hierarchy-actions/pre-hierarchy.md
-      - Post-Hierarchy Actions: events/hierarchy-actions/post-hierarchy.md
-      - Seeded Scripts: events/hierarchy-actions/seeded-scripts.md
-    - Workflow Tasks:
-      - events/workflow/index.md
-      - On Submit Tasks: events/workflow/on-submit.md
-      - Custom Tasks: events/workflow/custom-tasks.md
-      - Request Line Approval: events/workflow/request-line-approval.md
+      - Standard Validations: events/property-validations/standard-validations.md
+    - Pre Hierarchy Actions:
+      - events/pre-hierarchy-actions/index.md
+      - Input Parameters: events/pre-hierarchy-actions/input-parameters.md
+      - Output Parameters: events/pre-hierarchy-actions/output-parameters.md
+      - Examples: events/pre-hierarchy-actions/examples.md
+      - Seeded Scripts: events/pre-hierarchy-actions/seeded-scripts.md
+    - Post Hierarchy Actions:
+      - events/post-hierarchy-actions/index.md
+      - Input Parameters: events/post-hierarchy-actions/input-parameters.md
+      - Output Parameters: events/post-hierarchy-actions/output-parameters.md
+      - Examples: events/post-hierarchy-actions/examples.md
+      - Seeded Scripts: events/post-hierarchy-actions/seeded-scripts.md
     - Deployment Tasks:
-      - events/deployment/index.md
-      - Pre-Deployment: events/deployment/pre-deployment.md
-      - Post-Deployment: events/deployment/post-deployment.md
+      - events/deployment-tasks/index.md
+      - Input Parameters: events/deployment-tasks/input-parameters.md
+      - Output Parameters: events/deployment-tasks/output-parameters.md
+      - Examples: events/deployment-tasks/examples.md
     - ERP Interface:
       - events/erp-interface/index.md
-      - Pre-Import Tasks: events/erp-interface/pre-import.md
-      - Post-Import Tasks: events/erp-interface/post-import.md
+      - Input Parameters: events/erp-interface/input-parameters.md
+      - Output Parameters: events/erp-interface/output-parameters.md
+      - Examples: events/erp-interface/examples.md
+    - On Submit Workflow Task:
+      - events/on-submit-workflow-task/index.md
+      - Input Parameters: events/on-submit-workflow-task/input-parameters.md
+      - Output Parameters: events/on-submit-workflow-task/output-parameters.md
+      - Examples: events/on-submit-workflow-task/examples.md
+    - Workflow Custom Tasks:
+      - events/workflow-custom_task/index.md
+      - Input Parameters: events/workflow-custom_task/input-parameters.md
+      - Output Parameters: events/workflow-custom_task/output-parameters.md
+      - Examples: events/workflow-custom_task/examples.md
     - Export Tasks:
-      - events/export/index.md
-      - Pre-Export: events/export/pre-export.md
-      - Post-Export: events/export/post-export.md
+      - events/export-tasks/index.md
+      - Input Parameters: events/export-tasks/input-parameters.md
+      - Output Parameters: events/export-tasks/output-parameters.md
+      - Examples: events/export-tasks/examples.md
+    - On Request Line Approval Task:
+      - events/on-request-line-approval/index.md
+      - Input Parameters: events/on-request-line-approval/input-parameters.md
+      - Output Parameters: events/on-request-line-approval/output-parameters.md
+      - Examples: events/on-request-line-approval/examples.md
   
-  - API Reference:
+  - Logic Builder API Library:
     - api/index.md
-    - Database Views:
-      - api/database-views/index.md
-      - Core Views: api/database-views/core-views.md
-      - Request Views: api/database-views/request-views.md
-    - Package APIs:
+    - Database Views: api/database-views/database_view.md
+    - Database Record Types: api/database-views/record_type.md
+    - Database Package APIs:
       - api/packages/index.md
-      - In Memory Functions: api/packages/in-memory.md
-      - Email APIs: api/packages/email.md
-      - Request APIs: api/packages/request.md
-      - Hierarchy APIs: api/packages/hierarchy.md
-      - Statistics APIs: api/packages/statistics.md
-      - Application APIs: api/packages/application.md
-      - Workflow APIs: api/packages/workflow.md
-      - String APIs: api/packages/string.md
-      - Lookup APIs: api/packages/lookup.md
-      - Security APIs: api/packages/security.md
-      - Export APIs: api/packages/export.md
-      - Agent APIs: api/packages/agent.md
+      - In Memory Functions: api/packages/in_memory_api.md
+      - Email APIs: api/packages/email_api.md
+      - Request APIs: api/packages/request_api.md
+      - ERP Import APIs: api/packages/erp_import_api.md
+      - Hierarchy APIs: api/packages/hierarchy_api.md
+      - Hierarchy Statistical APIs: api/packages/hierarchy_stats_api.md
+      - Dimension Mapping API: api/packages/dimension_mapping_api.md
+      - Application APIs: api/packages/application_api.md
+      - Workflow APIs: api/packages/workflow_api.md
+      - String APIs: api/packages/string_api.md
+      - Lookup APIs: api/packages/lookup_functions.md
+      - Security APIs: api/packages/security_api.md
+      - Export APIs: api/packages/export_api.md
+      - Agent APIs: api/packages/agent_api.md
   
   - Appendices:
     - appendices/index.md
-    - Appendix A - Action Codes: appendices/action-codes.md
-    - Appendix B - Standard Scripts: appendices/standard-scripts.md
-    - Appendix C - ERP Import Table: appendices/erp-import-table.md
-    - Appendix D - Debug and Test: appendices/debugging.md
-    - Appendix E - Examples:
-      - appendices/examples/index.md
-      - Property Validation: appendices/examples/property-validation.md
-      - Property Derivation: appendices/examples/property-derivation.md
-      - Dimension Mapping: appendices/examples/dimension-mapping.md
-      - Workflow Tasks: appendices/examples/workflow-tasks.md
-      - Hierarchy Actions: appendices/examples/hierarchy-actions.md
-      - Advanced Patterns: appendices/examples/advanced-patterns.md
+    - Appendix A - Action Codes: appendices/appendix_a_action-codes.md
+    - Appendix B - Out of the box Logic Scripts: appendices/appendix_b_out_of_box_scripts.md
+    - Appendix C - ERP Import Table: appendices/appendix_c_erp-import-table.md
+
 
 extra:
   copyright: |

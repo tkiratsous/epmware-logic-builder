@@ -79,6 +79,17 @@
   text-align: center;
 }
 
+/* Added stronger rule for image view */
+.md-typeset img {
+  max-width: 100% !important;
+  page-break-inside: avoid !important;
+  border: 1px solid #444 !important;
+  border-radius: 6px !important;
+  padding: 4px !important;
+  background-color: #fff !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+}
+
 /* API parameter tables */
 .api-params table {
   margin: 1rem 0;
@@ -261,6 +272,8 @@
   }
 }
 
+
+-----
 /* Copy button styling for code blocks */
 .md-clipboard {
   color: var(--epmware-blue);
@@ -355,3 +368,49 @@ details.code-details pre {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
+
+/* ----------------------------------------------------
+   Paragraph formatting: justification + clean right edge
+   ---------------------------------------------------- */
+
+/* Full justification for paragraphs, list items, and table text */
+.md-typeset p,
+.md-typeset li,
+.md-typeset td,
+.md-typeset th {
+    text-align: justify;           /* clean left + right alignment */
+    text-justify: inter-word;      /* evenly distribute words */
+    hyphens: none ;                 /* prevents large spacing gaps */
+    -webkit-hyphens: none ;
+    -ms-hyphens: none ;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    font-size: 0.77rem;            /* consistent paragraph font size */
+    line-height: 1.55;             /* professional document spacing */
+}
+
+/* Keep headings left-aligned */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    text-align: left !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
+
+
+/* Reduce table text size only (not headings, not paragraphs) */
+.md-typeset table:not([class]) td,
+.md-typeset table:not([class]) th {
+    font-size: 0.70rem !important;
+    line-height: 1.4;
+}
+
+
+/* docs/stylesheets/extra.css */
+.icon-blue svg {
+  color: #1e88e5;   /* Material Blue */
+}
+
+

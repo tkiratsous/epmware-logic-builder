@@ -1,120 +1,117 @@
-# EPMware Logic Builder Guide
+# **EPMware Logic Builder Guide**
 
-Welcome to the EPMware Logic Builder Guide. This comprehensive guide provides detailed instructions for creating and managing custom logic scripts to extend EPMware's functionality and automate complex business processes.
+Welcome to the **EPMware Logic Builder Guide**...!!!  
+This guide provides comprehensive instructions for creating and managing custom logic scripts to extend EPMware functionality and automate complex business processes.
 
-## About This Guide
 
-The Logic Builder Module allows users to build custom logic in various modules within EPMware to provide solutions for custom requirements such as property validations, custom workflow tasks, and automated hierarchy actions. This guide is designed for developers, administrators, and power users responsible for:
+## 📘 About This Guide
 
-- Creating and maintaining custom logic scripts
-- Implementing business rules and validations
-- Automating metadata management processes
-- Extending EPMware functionality through scripting
-- Building custom workflow tasks and integrations
+The Logic Builder module enables users to build custom logic across multiple EPMware modules to address advanced business requirements such as:
 
-!!! info "Version Information"
-    This guide covers EPMware Logic Builder version 2.9, updated September 2025
+- Custom property validations  
+- Executing custom tasks within workflows  
+- Automating metadata and system processes
 
-## Key Features
 
-### Oracle PL/SQL Based
-The Logic Builder utilizes Oracle PL/SQL as its programming language, with scripts residing within the EPMware database for optimal performance and security.
 
-### Event-Driven Architecture
-Logic Scripts are triggered by specific events in EPMware, such as:
-- Hierarchy changes (create, rename, move members)
-- Property modifications
-- Workflow stage transitions
-- Deployment executions
-- Export operations
+## 🧩 Script Development Options
 
-### Rich API Library
-Access a comprehensive library of APIs for:
-- Hierarchy manipulation
-- Property management
-- Workflow automation
-- Security operations
-- Email notifications
-- External integrations
+The Logic Builder uses Oracle PL/SQL as its programming language, and all scripts reside within the EPMware database.
 
-## Quick Start
+For On-Premise customers only, it is also possible to:
 
-New to Logic Builder? Follow these steps to get started:
+- Develop stored database functions  
+- Reference those functions from Logic Scripts  
 
-1. **[Enable Security Access](getting-started/security-provisioning.md)** - Grant Logic Builder access to appropriate user groups
-2. **[Create Your First Script](getting-started/creating-scripts.md)** - Build a simple validation script
-3. **[Understand Script Types](getting-started/script-types.md)** - Learn about different script categories
-4. **[Configure Script Events](events/)** - Associate scripts with EPMware events
-5. **[Test and Debug](getting-started/script-structure.md#debug-and-logging)** - Use logging and error handling
+This approach allows business logic to remain hidden from the front-end, improving security and maintainability.
 
-## Script Types Overview
 
-Logic Builder supports multiple script types for different purposes:
 
-| Script Type | Purpose | Common Use Cases |
-|------------|---------|------------------|
-| **Dimension Mapping** | Synchronize hierarchies across applications | Cross-application member synchronization |
-| **Property Mapping** | Map property values between dimensions | Attribute synchronization |
-| **Property Validation** | Validate property values | Business rule enforcement |
-| **Property Derivation** | Auto-populate property values | Default value assignment |
-| **Hierarchy Actions** | Execute logic before/after hierarchy changes | Audit trails, automated tasks |
-| **Workflow Tasks** | Custom workflow automation | Conditional approvals, notifications |
-| **Deployment Tasks** | Pre/post deployment operations | Validation checks, notifications |
-| **ERP Interface** | ERP import/export automation | Data transformation |
+## 🔗 Script Assignment & Execution
+
+All Logic Scripts must be assigned to their respective configurations to be executed.
+
+The execution flow follows a two-step process:
+
+  1. Create the Logic Script in the Logic Builder module  
+  2. Assign the script in its related configuration screen
+
+For example:
+  - A Dimension Mapping logic script executes only when it is referenced in the Dimension Mapping configuration
+  - The script runs when a triggering event occurs, such as creating a new request line for a mapped dimension
+
+In summary, Logic Scripts are executed only when both:
+  - They are correctly configured
+  - A related system event is triggered
+
+---
+
+!!! tip
+    Always verify script assignment in the configuration screen to ensure the script executes as expected.
+
 
 ## Prerequisites
 
 Before using this guide, ensure you have:
 
-- Administrative or developer access to your EPMware environment
+- Access to your EPMware environment
 - Basic understanding of Oracle PL/SQL syntax
 - Familiarity with EPMware metadata management concepts
-- Understanding of your target EPM applications (HFM, Planning, Essbase, etc.)
 - Access to the Logic Builder module (via Security Provisioning)
 
 !!! warning "Important Note"
     For cloud deployments, stored database functions are not available. All logic must be implemented within the Script Editor interface.
 
-## Support & Resources
 
-- **Technical Support**: support@epmware.com
-- **Phone**: 408-614-0442
-- **Website**: [www.epmware.com](https://www.epmware.com)
-- **Administrator Guide**: For general EPMware administration topics
-
----
-
-## Documentation Sections
+## Quick Start
 
 Explore the complete Logic Builder documentation:
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch:{ .lg .middle } **Getting Started**
+-   :material-lock:{ .lg .middle } **[Security Provisioning](getting-started/security-provisioning)**
 
-    ---
 
-    Set up security, create your first script, and learn the basics
+    Configure user access to Logic Builder module
 
-    [:octicons-arrow-right-24: Get started](getting-started/)
+    [:octicons-arrow-right-24: Get started](getting-started/security-provisioning.md)
 
--   :material-calendar-clock:{ .lg .middle } **Script Events**
+-   :material-puzzle:{ .lg .middle } **[Create Logic Builder Scripts](getting-started/creating-scripts)**
 
-    ---
 
-    Configure scripts for dimension mapping, property validation, and workflow automation
+    Build your first logic script
+
+    [:octicons-arrow-right-24: Start Building](getting-started/creating-scripts.md)
+
+-   :material-calendar-clock:{ .lg .middle } **[Logic Script Events](events/index.md)** 
+
+
+    Understand script events eg. dimension mapping, property validation, property derivation etc.
 
     [:octicons-arrow-right-24: Explore events](events/)
 
--   :material-api:{ .lg .middle } **API Reference**
+-   :material-code-braces:{ .lg .middle } **[Logic Builder Script Body](getting-started/logic-script-body)** 
+    
+    Understand Logic Script Structure, Validation, Association, debug and logging
 
-    ---
+    [:octicons-arrow-right-24: View Script Structure](getting-started/logic-script-body)
+    
+-   :material-chart-box:{ .lg .middle } **[Logic Script Usage Report ](getting-started/logic-script-usage-report)** 
+
+
+    Report to view logic script usage across different applications.
+
+    [:octicons-arrow-right-24: Get started](getting-started/logic-script-usage-report)
+
+-   :material-api:{ .lg .middle } **[Logic Builder API Library](api/)** 
+
 
     Complete reference for all Logic Builder APIs, functions, and database views
 
     [:octicons-arrow-right-24: View APIs](api/)
 
--   :material-code-tags:{ .lg .middle } **Dimension Mapping**
+<!--
+-   :material-code-tags:{ .lg .middle } **[Dimension Mapping](events/dimension-mapping/)** 
 
     ---
 
@@ -122,7 +119,7 @@ Explore the complete Logic Builder documentation:
 
     [:octicons-arrow-right-24: Learn mapping](events/dimension-mapping/)
 
--   :material-checkbox-marked:{ .lg .middle } **Property Validation**
+-   :material-checkbox-marked:{ .lg .middle } **[Property Validation](events/property-validations/)**
 
     ---
 
@@ -130,28 +127,34 @@ Explore the complete Logic Builder documentation:
 
     [:octicons-arrow-right-24: Build validations](events/property-validations/)
 
--   :material-sitemap:{ .lg .middle } **Workflow Automation**
+-   :material-sitemap:{ .lg .middle } **[Workflow Automation](events/workflow-custom_task/)**
 
     ---
 
     Create custom workflow tasks and conditional logic
 
-    [:octicons-arrow-right-24: Automate workflows](events/workflow/)
+    [:octicons-arrow-right-24: Automate workflows](events/workflow-custom_task/)
 
--   :material-database-import:{ .lg .middle } **ERP Integration**
+-   :material-database-import:{ .lg .middle } **[ERP Interface Tasks](events/erp-interface/)**
 
     ---
 
     Build custom logic for ERP import and export processes
 
     [:octicons-arrow-right-24: Integrate ERP](events/erp-interface/)
+-->
+-   :material-book-open-variant:{ .lg .middle } **[Appendices](appendices/)** 
 
--   :material-book-open-variant:{ .lg .middle } **Appendices**
-
-    ---
 
     Action codes, standard scripts, and technical references
 
     [:octicons-arrow-right-24: Reference](appendices/)
 
 </div>
+
+## Support & Resources
+
+- **Technical Support**: support@epmware.com
+- **Phone**: 408-614-0442
+- **Website**: [www.epmware.com](https://www.epmware.com)
+- **Administrator Guide**: For general EPMware administration topics

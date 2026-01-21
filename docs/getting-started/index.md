@@ -6,17 +6,13 @@ The Logic Builder Module enables you to build custom logic throughout EPMware to
 
 EPMware's Logic Builder utilizes Oracle PL/SQL as its programming language, with scripts residing within the EPMware database. This powerful framework allows you to automate processes, enforce business rules, and extend standard functionality without exposing business logic in the front-end.
 
-!!! info "Deployment Options"
-    - **Cloud Customers**: Scripts must be created in the Logic Builder editor
-    - **On-Premise Customers**: Can optionally create stored database procedures and reference them in Logic Scripts
-    
-    The DB Function Name field is only available for On-Premise installations.
+   **On-Premise Customers**: Can optionally create stored database functions and reference them in Logic Scripts
 
 ## Quick Navigation
 
 <div class="grid cards">
   <div class="card">
-    <h3>🔐 Security Setup</h3>
+    <h3>🔐 Security Provisioning</h3>
     <p>Configure user access to Logic Builder module</p>
     <a href="security-provisioning" class="md-button">Configure Access →</a>
   </div>
@@ -48,9 +44,8 @@ Logic Script execution follows a two-step process:
 2. **Assign to Configuration** - Reference it in the related configuration page
 
 Scripts execute when specific events occur. For example:
-- Dimension mapping scripts execute when new lines are created in requests
-- Property validation scripts trigger when properties are modified
-- Workflow scripts run during stage transitions
+- Dimension mapping scripts execute when new lines are created in requests.
+- On Submit Workflow scripts executes whenever a request is submitted to the workflow.
 
 ## Available Script Types
 
@@ -65,49 +60,13 @@ The Logic Builder supports 13 different script types, each designed for specific
 | 5 | **Property Derivations** | Calculate and derive property values | Configuration → Property → Derivations |
 | 6 | **Property Validations** | Validate property values against business rules | Configuration → Property → Validations |
 | 7 | **On Submit Workflow** | Validate before workflow submission | Workflow → Builder |
-| 8 | **Pre Request Line Approval** | Validate before line approval | Workflow → Tasks |
-| 9 | **Workflow Custom Task** | Perform custom workflow tasks | Workflow → Tasks |
+| 8 | **On Request Line Approval** | Validate on line approval | Workflow → Approve/Review Tasks |
+| 9 | **Workflow Custom Task** | Perform custom workflow tasks | Workflow → Custom Tasks |
 | 10 | **Deployment Tasks** | Pre/post deployment operations | Deployment Configuration |
 | 11 | **ERP Interface Tasks** | Pre/post ERP import execution | ERP Import → Builder |
-| 12 | **Pre Export Generation** | Execute before export file generation | Administration → Export |
-| 13 | **Post Export Generation** | Execute after export file generation | Administration → Export |
+| 12 | **Pre Export Generation Tasks** | Execute before export file generation |  Export |
+| 13 | **Post Export Generation Tasks** | Execute after export file generation |  Export |
 
-## Core Concepts
-
-### Script Execution Context
-
-Logic Scripts have access to:
-- **Input Parameters** - Context data provided by EPMware
-- **Output Parameters** - Values your script returns
-- **EPMware APIs** - Rich library of functions
-- **Database Views** - Direct access to EPMware data model
-
-### Global Variables
-
-All scripts access parameters through the `EW_LB_API` package:
-- `g_member_name` - Current member being processed
-- `g_action_code` - Hierarchy action code
-- `g_app_name` - Application name
-- `g_request_id` - Current request ID
-
-### Status and Error Handling
-
-Every script must set:
-- `ew_lb_api.g_status` - Success ('S') or Error ('E')
-- `ew_lb_api.g_message` - Error message when status is 'E'
-
-## Development Workflow
-
-```mermaid
-graph LR
-    A[Create Script] --> B[Validate Syntax]
-    B --> C[Assign to Event]
-    C --> D[Test in Sandbox]
-    D --> E{Works?}
-    E -->|Yes| F[Deploy to Production]
-    E -->|No| G[Debug & Fix]
-    G --> D
-```
 
 ## Best Practices Summary
 
@@ -132,28 +91,28 @@ graph LR
 */
 
 DECLARE
-    -- Constants
-    c_script_name VARCHAR2(50) := 'MY_SCRIPT_NAME';
-    
-    -- Local procedures for logging
-    PROCEDURE log(p_msg IN VARCHAR2) IS
-    BEGIN
-        ew_debug.log(p_text => p_msg, 
-                    p_source_ref => c_script_name);
-    END log;
-    
+   -- Constants
+   c_script_name VARCHAR2(50) := 'MY_SCRIPT_NAME';
+   
+   -- Local procedures for logging
+   PROCEDURE log(p_msg IN VARCHAR2) IS
+   BEGIN
+       ew_debug.log(p_text => p_msg, 
+                   p_source_ref => c_script_name);
+   END log;
+  
 BEGIN
-    -- Initialize status
-    ew_lb_api.g_status := ew_lb_api.g_success;
-    ew_lb_api.g_message := NULL;
-    
-    -- Your logic here
-    
+   -- Initialize status
+   ew_lb_api.g_status := ew_lb_api.g_success;
+   ew_lb_api.g_message := NULL;
+   
+   -- Your logic here
+   
 EXCEPTION
-    WHEN OTHERS THEN
-        ew_lb_api.g_status := ew_lb_api.g_error;
-        ew_lb_api.g_message := 'Error: ' || SQLERRM;
-        log(ew_lb_api.g_message);
+   WHEN OTHERS THEN
+       ew_lb_api.g_status := ew_lb_api.g_error;
+       ew_lb_api.g_message := 'Error: ' || SQLERRM;
+       log(ew_lb_api.g_message);
 END;
 ```
 
@@ -161,19 +120,12 @@ END;
 
 Before creating Logic Scripts, ensure you have:
 
-- ✅ **Access Rights** - Logic Builder module enabled via Security Provisioning
+- ✅ **Access Rights**    - Logic Builder module enabled via Security Provisioning
 - ✅ **PL/SQL Knowledge** - Understanding of Oracle PL/SQL syntax
-- ✅ **EPMware Training** - Familiarity with EPMware data model
-- ✅ **Test Environment** - Sandbox for script validation
-- ✅ **Documentation** - Access to API reference guide
+- ✅ **Documentation**    - Basic Knowledge of Epmware APIs from logic builder guide
+- ✅ **Test Environment** - Always test scripts on test env first
 
 ## Getting Help
-
-### Resources
-- **API Reference** - Complete documentation of available functions
-- **Example Scripts** - Templates for common use cases
-- **Debug Tools** - Built-in logging and debugging features
-- **Support Team** - support@epmware.com
 
 ### Common Questions
 
@@ -181,13 +133,11 @@ Before creating Logic Scripts, ensure you have:
     No, never modify scripts with "EW_" prefix. Instead, create a copy with a different name and modify the copy.
 
 ??? question "How do I debug my scripts?"
-    Use `ew_debug.log()` extensively and check Debug Messages in the Audit module.
+    Use `ew_debug.log()` extensively for logging and check Debug Messages in the Audit module.
 
 ??? question "What permissions do I need?"
     Your security group needs the Logic Builder module enabled in Security Provisioning.
 
-??? question "Can scripts call external systems?"
-    Yes, through Agent API functions for on-premise installations with proper configuration.
 
 ## Next Steps
 
@@ -232,6 +182,7 @@ ew_hierarchy.get_member_prop_value(p_app_dimension_id => 100,
 ```
 
 ### Action Codes Quick Reference
+[Action codes](appendices/action-codes.md)
 | Code | Action |
 |------|--------|
 | CMC | Create Member - As Child |
@@ -240,6 +191,12 @@ ew_hierarchy.get_member_prop_value(p_app_dimension_id => 100,
 | P | Edit Properties |
 | RM | Rename Member |
 | ZC | Move Member |
+| ISMC | Insert Shared Member - As Child |
+| ISMS | Insert Shared Member - As Sibling |
+| RSM | Remove Shared Member |
+| AC | Activate Member |
+| IC | Inactivate Member |
+| RC | Reorder Children |
 
 ---
 
