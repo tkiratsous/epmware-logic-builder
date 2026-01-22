@@ -1,331 +1,331 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/indexOLD/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/database-views/database_view/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/database-views/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/database-views/record_type/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/database-views/core-views/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/database-views/request-views/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/agent_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/application_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/agent/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/dimension_mapping_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/application/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/email_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/email/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/erp_import_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/export/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/export_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/hierarchy/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/hierarchy_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/hierarchyOLD/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/hierarchy_stats_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/in-memory/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/in_memory_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/lookup/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/lookup_functions/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/request/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/request_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/security/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/security_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/statistics/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/string_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/string/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/api/packages/workflow_api/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/api/packages/workflow/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/appendices/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/appendices/appendix_a_action-codes/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/action-codes/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/appendices/appendix_b_out_of_box_scripts/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/debugging/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/appendices/appendix_c_erp-import-table/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/erp-import-table/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/indexOLD/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/deployment-tasks/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/property_validation/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/deployment-tasks/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/standard-scripts/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/deployment-tasks/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/deployment-tasks/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/advanced-patterns/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/dimension-mapping/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/dimension-mapping/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/dimension-mapping/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/hierarchy-actions/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/dimension-mapping/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/indexOLD/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/dimension-mapping/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/indexOLD1/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/erp-interface/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/property-derivation/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/erp-interface/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/property-validation/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/erp-interface/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/appendices/examples/workflow-tasks/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/erp-interface/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/export-tasks/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/deployment/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/export-tasks/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/deployment/post-deployment/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/export-tasks/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/deployment/pre-deployment/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/export-tasks/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-request-line-approval/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/dimension-mapping-examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-request-line-approval/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/dimension-mapping-input-parameters/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-request-line-approval/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/dimension-mapping-output-parameters/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-request-line-approval/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-submit-workflow-task/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/indexOLD1/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-submit-workflow-task/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/input-parameters/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-submit-workflow-task/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/dimension-mapping/output-parameters/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/on-submit-workflow-task/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/erp-interface/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/post-hierarchy-actions/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/erp-interface/post-import/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/post-hierarchy-actions/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/erp-interface/pre-import/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/post-hierarchy-actions/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/export/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/post-hierarchy-actions/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/export/post-export/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/post-hierarchy-actions/seeded-scripts/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/export/pre-export/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/pre-hierarchy-actions/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/hierarchy-actions/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/pre-hierarchy-actions/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/hierarchy-actions/post-hierarchy/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/pre-hierarchy-actions/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/hierarchy-actions/pre-hierarchy/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/pre-hierarchy-actions/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/hierarchy-actions/seeded-scripts/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/pre-hierarchy-actions/seeded-scripts/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-derivations/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-derivations/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-derivations/configuration/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-derivations/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-derivations/examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-derivations/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-derivations/property-derivations-index%20%281%29/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-derivations/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-mapping/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/configuration/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-mapping/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-mapping/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/indexOLD/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-mapping/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/property-mapping-configuration/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-validations/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-mapping/property-mapping-examples2/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-validations/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-validations/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-validations/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-validations/examples/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-validations/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/property-validations/standard-validations/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/property-validations/standard-validations/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/workflow/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/workflow-custom_task/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/workflow/custom-tasks/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/workflow-custom_task/examples/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/workflow/on-submit/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/workflow-custom_task/input-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/events/workflow/request-line-approval/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/events/workflow-custom_task/output-parameters/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/creating-scripts/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/creating-scripts/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/indexnew/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/logic-script-associations/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/indexnew1/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/logic-script-body/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/script-structure/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/logic-script-usage-report/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/script-types/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/script-types/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
     <url>
-         <loc>https://tkiratsous.github.io/epmware-logic-builder-guide/getting-started/security-provisioning/</loc>
-         <lastmod>2025-10-12</lastmod>
+         <loc>https://logic-builder-guide.epmware.com/getting-started/security-provisioning/</loc>
+         <lastmod>2026-01-21</lastmod>
     </url>
 </urlset>

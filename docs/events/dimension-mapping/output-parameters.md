@@ -1,8 +1,8 @@
-# Dimension Mapping Output Parameters
+# 📤**Dimension Mapping Output Parameters**
 
-Output parameters control how EPMware processes the mapping results. By setting these parameters, you can override default behavior, transform member names, redirect to different hierarchies, or skip processing entirely.
+Depending on the hierarchy action, specific output parameters can be populated to perform the same hierarchy action on the mapped dimension, or they can be skipped based on the business requirement.
 
-## Standard Output Parameters
+## Output Parameters
 
 All Logic Scripts must set these standard outputs:
 
@@ -22,361 +22,232 @@ ew_lb_api.g_message := 'Member mapped successfully';
 ew_lb_api.g_status := ew_lb_api.g_error;    -- 'E'
 ew_lb_api.g_message := 'Invalid member name format';
 ```
+</br>
 
-## Mapping Control Parameters
 
-These parameters control the mapping behavior:
+### ***Hierarchy Action: Create Member***
 
-### Target Member Names
 
-| Parameter | Type | Description | When to Use |
-|-----------|------|-------------|-------------|
-| `g_out_tgt_new_member_name` | VARCHAR2 | Target member name | Transform member names during mapping |
-| `g_out_tgt_parent_member_name` | VARCHAR2 | Target parent name | Redirect to different parent |
-| `g_out_tgt_old_member_name` | VARCHAR2 | Old name for rename | Specify different name to rename |
+The “Create Member” action has two sub actions. “As Child” or “As Sibling”. Depending on the sub action, Member Name, Parent Member Name get populated for Input Parameters and correspondingly Output Parameters will be required for the mapped dimension.
 
-### Processing Control
 
-| Parameter | Type | Description | Values |
-|-----------|------|-------------|---------|
-| `g_out_ignore_flag` | VARCHAR2 | Skip standard processing | 'Y' or 'N' (default) |
-| `g_out_skip_sync` | VARCHAR2 | Skip automatic sync | 'Y' or 'N' (default) |
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not.  Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_out_new_member_name | New Member name for the mapped dimension |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
 
-## Parameter Usage Examples
 
-### Transform Member Names
+
+Note: Parent Member Name and Member Name of the mapped dimension determines where the new member will be created in that mapped dimension. 
+
+If the Action Code is CMS (Crate Member as Sibling) then a New Member will be created after the Member Name under the parent member name provided in the output variables.
+
+If the Action Code is CMC (Create Member as Child) then a New Member will be created under the Member Name. In this case g_out_member_name will be used as a parent member under which a new member will be created in the mapped dimension.
+
+For example, if the user chooses “As Child” versus “As Sibling” action on the member “300-10” then different values will be populated for Input Parameters and corresponding Output Parameters will be anticipated in the Logic Script. New Member Name is 300-90. In the mapped application, you are required to add prefix P against member names such as P300-90
+<br/>
+
+![Dimension Mapping Output-1](../../assets/images/Dim_map_output_1.png)<br/>
+
+
+Input Parameters:
+
+
+| Parameter | Create Member - As Child | Create Member - As Sibling |
+| --- | --- | --- |
+| g_parent_member_name | 300 | 300 |
+| g_member_name | 300-10 | 300-10 |
+| g_new_member_name | 300-90 | 300-90 |
+| g_action_code | CMC | CMS |
+
+
+
+
+Output Parameters:
+
+
+In this example, we will add prefix P for all member names to create a new member in the mapped application.
+
+
+| Parameter | Create Member - As Child | Create Member - As Sibling |
+| --- | --- | --- |
+| g_out_parent_member_name | P300 | P300 |
+| g_out_member_name | P300-10 | P300-10 |
+| g_out_new_member_name | P300-90 | P300-90 |
+| Result | P300-90 will be created as the Last child member of P300-10 | P300-90 will be created as a sibling member of P300-10 (Child member of P300) |
+
+
+### ***Hierarchy Action: Rename Member***
+
+
+The following table will provide a list of Input and Output Parameters specifically for Rename Member Action.<br/>
+Please refer to the main table above under Dimension Mapping for a complete list of all Input Parameters.
+
+
+
+
+| Input Parameter | Description |
+| --- | --- |
+| g_renamed_from_member_name | Original Member name before it was Renamed. Use this variable for the Rename Member action to get the original member name. |
+| g_action_code | RM |
+
+
+
+
+
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not. Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_out_new_member_name | Renamed Member Name for the Mapped dimension |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
+
+
+### ***Hierarchy Action: Edit Properties, Remove Shared Member, Delete Member***
+
+
+The following table will provide a list of Output Parameters required for Edit Properties, Remove Shared and Delete Member Actions.<br/>
+Please refer to the main table above under Dimension Mapping for a complete list of all the Input Parameters.
+
+
+
+| Input Parameter | Description |
+| --- | --- |
+| g_member_name | Member Name being Reordered |
+| g_parent_member_name | Parent Member of the Member Name being Reordered |
+| g_action_code | P   -> Edit Properties<br>RSM -> Remove Shared Member<br>DM  -> Delete Member |
+
+
+
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not. Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
+
+
+### ***Hierarchy Action: Reorder Children***
+
+
+The following table will provide a list of Input and Output Parameters specifically for Reorder Children Action.<br/>
+Please refer to the main table above under Dimension Mapping for a complete list of all the Input Parameters.
+
+
+
+
+| Input Parameter | Description |
+| --- | --- |
+| g_member_name | Member Name being Reordered |
+| g_parent_member_name | Parent Member of the Member Name being Reordered |
+| g_new_prev_sibling_member | New Previous Sibling of the member being reordered. |
+| g_action_code | RM |
+
+
+
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not. Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_out_new_prev_sibling_member | Previous Sibling Member for the member in the mapped dimension |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
+
+
+
+### ***Hierarchy Action: Move Member***
+
+
+The following table will provide a list of Input and Output Parameters specifically for Move Member Action.<br/>
+Please refer to the main table above under Dimension Mapping for a complete list of all the Input Parameters.
+
+
+
+
+| Input Parameter | Description |
+| --- | --- |
+| g_moved_from_member_name | When a member is moved from a source parent member to the target parent member then this variable provides the member name of the source parent member. |
+| g_moved_to_member_name | When a member is moved from a source parent member to the target parent member then this variable provides the member name of the target parent member. |
+| g_moved_from_hierarchy_id | When a member is moved from a source parent member to the target parent member then this ID provides the hierarchy id of the source parent member. |
+| g_moved_from_member_id | When a member is moved from a source parent member to the target parent member then this ID provides the member id of the source parent member. |
+| g_moved_to_hierarchy_id | When a member is moved from a source parent member to the target parent member then this ID provides the hierarchy id of the target parent member. |
+| g_moved_to_member_id | When a member is moved from a source parent member to the target parent member, then this ID provides the member id of the target parent member. |
+| g_action_code | ZC |
+
+
+
+
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not. Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_out_new_prev_sibling_member | Previous Sibling Member for the member in the mapped dimension |
+| g_out_moved_to_member_name | New Parent Member name where the member will be moved to for the mapped dimension |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
+
+
+### ***Hierarchy Action: Insert Shared Member***
+
+
+The following table will provide a list of Input and Output Parameters specifically for Insert Shared Member Action.<br/>
+Please refer to the main table above under Dimension Mapping for a complete list of all the Input Parameters. Like the “Create Member” action, this action also has 2 sub actions, “As Child” and “As Sibling". Member and Parent Member parameters will follow the similar construct for this action as it does for the “Create Member” action. However, there is a key difference between this action and the “Create Member” action. In the Create Member action you can only create one member at a time, but for this action users can create more than one shared instance in a single action. Hence, Input parameters will provide an array of members for which shared instances are created and expect a similar array in the Output Parameters list for the mapped dimension.
+
+
+
+| Input Parameter | Description |
+| --- | --- |
+| g_action_code | ISMC or ISMS |
+| g_shared_members_tbl | This is a PL/SQL collection (table) with the list of Member names from the source dimension which will get Shared instances.<br>If the action is Insert Shared Member as Child then shared instances will be created under Member Name. Shared instances will be created as the last member under the parent member.<br><br>If the action is Insert Shared Member as Sibling then shared instances will be created under Parent Member and after the Member name. |
+
+
+
+
+FYI: ew_lb_api.g_shared_members_tbl is a TABLE type collection. Type is as mentioned below.<br/>
+Each element in this table refers to a Member Name
+
+
 ```sql
-BEGIN
-  -- Add prefix to all members
-  ew_lb_api.g_out_tgt_new_member_name := 
-    'RPT_' || ew_lb_api.g_member_name;
-  
-  -- Keep same parent structure
-  ew_lb_api.g_out_tgt_parent_member_name := 
-    ew_lb_api.g_parent_member_name;
-    
-  ew_lb_api.g_status := ew_lb_api.g_success;
-END;
+ TYPE g_members_tbl_t   IS TABLE OF ew_members.member_name%TYPE 
+                        INDEX BY BINARY_INTEGER;
 ```
 
-### Redirect to Different Parent
+| Output Parameter | Description |
+| --- | --- |
+| g_out_ignore_flag | Y or N to indicate whether action needs to be ignored in the mapped dimension or not. Default value is N. |
+| g_out_parent_member_name | Parent Member Name from the mapped dimension |
+| g_out_member_name | Member Name from the mapped dimension |
+| g_out_new_prev_sibling_member | Previous Sibling Member for the member in the mapped dimension |
+| g_out_shared_members_tbl | Mapped Members from the Shared Dimension which will get shared instance |
+| g_status | Status Values are either ‘S’ for Success or ‘E’ for Error.<br><br>Alternatively use the following method to set values in your code.<br><br>ew_lb_api.g_status  := ew_lb_api.g_success<br>OR<br>ew_lb_api.g_status  := ew_lb_api.g_error |
+| g_message | Error Message if the status is Error. |
+
+
+
+ew_lb_api.g_out_shared_members_tbl is a TABLE type collection. Type is as mentioned below.
+
 ```sql
-BEGIN
-  -- Map all cost centers under a single parent
-  IF ew_lb_api.g_member_name LIKE 'CC_%' THEN
-    ew_lb_api.g_out_tgt_parent_member_name := 'ALL_COST_CENTERS';
-    ew_lb_api.g_out_tgt_new_member_name := ew_lb_api.g_member_name;
-  END IF;
-  
-  ew_lb_api.g_status := ew_lb_api.g_success;
-END;
+ TYPE g_members_tbl_t   IS TABLE OF ew_members.member_name%TYPE
+                        INDEX BY BINARY_INTEGER;<br> |
 ```
 
-### Skip Certain Members
-```sql
-BEGIN
-  -- Skip test members
-  IF ew_lb_api.g_member_name LIKE 'TEST_%' THEN
-    ew_lb_api.g_out_ignore_flag := 'Y';
-    ew_lb_api.g_status := ew_lb_api.g_success;
-    ew_lb_api.g_message := 'Test member skipped';
-    RETURN;
-  END IF;
-  
-  -- Process normal members
-  ew_hierarchy.set_dim_mapping_method(
-    p_mapping_method => 'SMARTSYNC',
-    x_status        => ew_lb_api.g_status,
-    x_message       => ew_lb_api.g_message
-  );
-END;
-```
 
-## Advanced Output Patterns
-
-### Conditional Parent Assignment
-```sql
-DECLARE
-  l_level NUMBER;
-BEGIN
-  -- Get member level
-  l_level := ew_statistics.get_level(
-    p_app_dimension_id => ew_lb_api.g_app_dimension_id,
-    p_member_id       => ew_lb_api.g_member_id
-  );
-  
-  -- Assign parent based on level
-  IF l_level = 0 THEN
-    -- Base members under detail parent
-    ew_lb_api.g_out_tgt_parent_member_name := 'DETAIL_MEMBERS';
-  ELSIF l_level <= 2 THEN
-    -- Mid-level under summary parent
-    ew_lb_api.g_out_tgt_parent_member_name := 'SUMMARY_MEMBERS';
-  ELSE
-    -- High-level keep original structure
-    ew_lb_api.g_out_tgt_parent_member_name := 
-      ew_lb_api.g_parent_member_name;
-  END IF;
-  
-  ew_lb_api.g_status := ew_lb_api.g_success;
-END;
-```
-
-### Dynamic Name Generation
-```sql
-DECLARE
-  l_date_suffix VARCHAR2(10);
-  l_seq_number NUMBER;
-BEGIN
-  -- Generate date suffix
-  l_date_suffix := TO_CHAR(SYSDATE, 'YYYYMMDD');
-  
-  -- Get next sequence number
-  SELECT seq_mapping.NEXTVAL INTO l_seq_number FROM DUAL;
-  
-  -- Create unique target name
-  ew_lb_api.g_out_tgt_new_member_name := 
-    ew_lb_api.g_member_name || '_' || 
-    l_date_suffix || '_' || 
-    LPAD(l_seq_number, 4, '0');
-    
-  ew_lb_api.g_status := ew_lb_api.g_success;
-END;
-```
-
-### Cross-Reference Mapping
-```sql
-DECLARE
-  l_target_info VARCHAR2(200);
-BEGIN
-  -- Look up mapping table
-  BEGIN
-    SELECT target_member || '|' || target_parent
-    INTO l_target_info
-    FROM custom_mapping_xref
-    WHERE source_member = ew_lb_api.g_member_name
-    AND source_app = ew_lb_api.g_src_app_name;
-    
-    -- Parse target info
-    ew_lb_api.g_out_tgt_new_member_name := 
-      SUBSTR(l_target_info, 1, INSTR(l_target_info, '|') - 1);
-    ew_lb_api.g_out_tgt_parent_member_name := 
-      SUBSTR(l_target_info, INSTR(l_target_info, '|') + 1);
-      
-  EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-      -- No mapping found, skip
-      ew_lb_api.g_out_ignore_flag := 'Y';
-      ew_lb_api.g_message := 'No mapping defined for ' || 
-                              ew_lb_api.g_member_name;
-  END;
-  
-  ew_lb_api.g_status := ew_lb_api.g_success;
-END;
-```
-
-## Output Parameter Combinations
-
-### Scenario: Create with Rename
-```sql
--- Input: Creating member "DEPT_100"
--- Output: Create as "D100" under specific parent
-ew_lb_api.g_out_tgt_new_member_name := 'D100';
-ew_lb_api.g_out_tgt_parent_member_name := 'ALL_DEPARTMENTS';
-```
-
-### Scenario: Move with Rename
-```sql
--- Input: Moving member "OLD_CC_100"
--- Output: Rename to "CC_100" and move to new parent
-IF ew_lb_api.g_action_code = 'ZC' THEN
-  ew_lb_api.g_out_tgt_new_member_name := 
-    REPLACE(ew_lb_api.g_member_name, 'OLD_', '');
-  ew_lb_api.g_out_tgt_parent_member_name := 'ACTIVE_COST_CENTERS';
-END IF;
-```
-
-### Scenario: Conditional Skip
-```sql
--- Skip mapping if target already exists
-IF ew_hierarchy.chk_member_exists(
-     p_app_dimension_id => ew_lb_api.g_tgt_dim_id,
-     p_member_name     => ew_lb_api.g_member_name
-   ) = 'Y' THEN
-  ew_lb_api.g_out_ignore_flag := 'Y';
-  ew_lb_api.g_message := 'Member already exists in target';
-ELSE
-  -- Proceed with mapping
-  ew_hierarchy.set_dim_mapping_method(
-    p_mapping_method => 'SMARTSYNC',
-    x_status        => ew_lb_api.g_status,
-    x_message       => ew_lb_api.g_message
-  );
-END IF;
-```
-
-## Error Handling
-
-### Setting Error Status
-```sql
-BEGIN
-  -- Validation check
-  IF LENGTH(ew_lb_api.g_member_name) > 50 THEN
-    ew_lb_api.g_status := ew_lb_api.g_error;
-    ew_lb_api.g_message := 'Member name exceeds 50 characters';
-    RETURN;  -- Stop processing
-  END IF;
-  
-  -- Continue with mapping
-  -- ...
-END;
-```
-
-### Accumulating Errors
-```sql
-DECLARE
-  l_errors VARCHAR2(4000);
-  l_has_error BOOLEAN := FALSE;
-BEGIN
-  -- Check multiple conditions
-  IF condition1_fails THEN
-    l_errors := l_errors || 'Condition 1 failed; ';
-    l_has_error := TRUE;
-  END IF;
-  
-  IF condition2_fails THEN
-    l_errors := l_errors || 'Condition 2 failed; ';
-    l_has_error := TRUE;
-  END IF;
-  
-  IF l_has_error THEN
-    ew_lb_api.g_status := ew_lb_api.g_error;
-    ew_lb_api.g_message := l_errors;
-  ELSE
-    ew_lb_api.g_status := ew_lb_api.g_success;
-  END IF;
-END;
-```
-
-## Best Practices
-
-### 1. Always Initialize Output Parameters
-```sql
-BEGIN
-  -- Initialize at start
-  ew_lb_api.g_status := ew_lb_api.g_success;
-  ew_lb_api.g_message := NULL;
-  ew_lb_api.g_out_ignore_flag := 'N';
-  
-  -- Your logic here
-END;
-```
-
-### 2. Provide Meaningful Messages
-```sql
--- Good: Specific and actionable
-ew_lb_api.g_message := 'Member CC_100 renamed to COST_100 and moved under Finance';
-
--- Bad: Generic
-ew_lb_api.g_message := 'Processed';
-```
-
-### 3. Validate Output Values
-```sql
--- Check that target names are valid
-IF ew_lb_api.g_out_tgt_new_member_name IS NOT NULL THEN
-  IF LENGTH(ew_lb_api.g_out_tgt_new_member_name) > 80 THEN
-    ew_lb_api.g_status := ew_lb_api.g_error;
-    ew_lb_api.g_message := 'Target member name too long';
-    RETURN;
-  END IF;
-END IF;
-```
-
-### 4. Use Ignore Flag Appropriately
-```sql
--- Use ignore flag for business logic skips
-IF member_should_not_sync THEN
-  ew_lb_api.g_out_ignore_flag := 'Y';
-  ew_lb_api.g_status := ew_lb_api.g_success;  -- Still success
-  ew_lb_api.g_message := 'Member excluded per business rules';
-END IF;
-
--- Use error status for actual failures
-IF critical_validation_fails THEN
-  ew_lb_api.g_status := ew_lb_api.g_error;  -- Error status
-  ew_lb_api.g_message := 'Critical validation failed';
-END IF;
-```
-
-## Performance Considerations
-
-### Minimize Database Calls
-```sql
--- Cache results when setting multiple outputs
-DECLARE
-  l_target_parent VARCHAR2(100);
-BEGIN
-  -- Single lookup
-  l_target_parent := lookup_target_parent(ew_lb_api.g_member_name);
-  
-  -- Reuse for multiple outputs
-  ew_lb_api.g_out_tgt_parent_member_name := l_target_parent;
-  
-  IF l_target_parent IS NULL THEN
-    ew_lb_api.g_out_ignore_flag := 'Y';
-  END IF;
-END;
-```
-
-### Batch Processing
-```sql
--- When processing multiple members, use bulk operations
-DECLARE
-  TYPE t_member_map IS TABLE OF VARCHAR2(100) INDEX BY VARCHAR2(100);
-  l_mapping t_member_map;
-BEGIN
-  -- Load all mappings once
-  load_all_mappings(l_mapping);
-  
-  -- Use cached mappings
-  IF l_mapping.EXISTS(ew_lb_api.g_member_name) THEN
-    ew_lb_api.g_out_tgt_new_member_name := 
-      l_mapping(ew_lb_api.g_member_name);
-  END IF;
-END;
-```
-
-## Testing Output Parameters
-
-### Debug Logging
-```sql
-DECLARE
-  PROCEDURE log_outputs IS
-  BEGIN
-    ew_debug.log('=== Output Parameters ===');
-    ew_debug.log('Status: ' || ew_lb_api.g_status);
-    ew_debug.log('Message: ' || ew_lb_api.g_message);
-    ew_debug.log('Target Member: ' || 
-                 NVL(ew_lb_api.g_out_tgt_new_member_name, 'Not Set'));
-    ew_debug.log('Target Parent: ' || 
-                 NVL(ew_lb_api.g_out_tgt_parent_member_name, 'Not Set'));
-    ew_debug.log('Ignore Flag: ' || 
-                 NVL(ew_lb_api.g_out_ignore_flag, 'N'));
-  END;
-BEGIN
-  -- Your mapping logic
-  
-  -- Log outputs before returning
-  log_outputs();
-END;
-```
 
 ## Next Steps
 
-- [Examples](examples.md) - Complete mapping scenarios
-- [Input Parameters](input-parameters.md) - Available input data
-- [API Reference](../../api/packages/hierarchy.md) - Supporting APIs
+- [Dimension Mapping Examples](examples.md) 
+- [Dimension Mapping Input Parameters](input-parameters.md)
+- [API Reference](../../api/packages/index.md)
+- [Dimension Mapping APIs](../../api/packages/dimension_mapping_api.md)
 
 ---
 
