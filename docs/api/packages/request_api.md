@@ -929,16 +929,16 @@ Create a Request line to rename a member by calling the following function
 ```sql
 
 FUNCTION create_line_rename_member_app
-(p_user_id IN NUMBER
-,p_request_id IN NUMBER
-,p_app_name IN VARCHAR2
-,p_dim_name IN VARCHAR2
-,p_member_name IN VARCHAR2
-,p_new_member_name IN VARCHAR2
-,p_related_line_id IN NUMBER DEFAULT NULL
-,p_chk_security IN VARCHAR2 DEFAULT 'Y'
-,x_msg IN OUT VARCHAR2
-)
+          (p_user_id IN NUMBER
+          ,p_request_id IN NUMBER
+          ,p_app_name IN VARCHAR2
+          ,p_dim_name IN VARCHAR2
+          ,p_member_name IN VARCHAR2
+          ,p_new_member_name IN VARCHAR2
+          ,p_related_line_id IN NUMBER DEFAULT NULL
+          ,p_chk_security IN VARCHAR2 DEFAULT 'Y'
+          ,x_msg IN OUT VARCHAR2
+          )
 RETURN VARCHAR2;
 
 
@@ -947,23 +947,47 @@ RETURN VARCHAR2;
 
 ### Update Hierarchy Property
 
+This will add a line in request for Edit Property Action for a specifc node if line does not exist. If line exists then it will update the property value for the member in that request line
+
 ```sql
 
-/* Returns Y if the API is successful. Else returns N */
+/* 
+  Returns Y if the API is successful. Else returns N 
+  This accepts hierarchy_id as input
+*/
 
 FUNCTION update_hierarchy_prop
- (p_user_id IN NUMBER
- ,p_request_id IN NUMBER
- ,p_app_dimension_id IN NUMBER
- ,p_hierarchy_id IN NUMBER
- ,p_prop_label IN VARCHAR2
- ,p_prop_value IN VARCHAR2
- ,p_prop_value_clob IN CLOB DEFAULT NULL
- ,p_vary_by_member_names IN VARCHAR2 DEFAULT NULL
- ,p_related_line_id IN NUMBER DEFAULT NULL
- ,x_msg OUT VARCHAR2
- )
+          (p_user_id IN NUMBER
+          ,p_request_id IN NUMBER
+          ,p_app_dimension_id IN NUMBER
+          ,p_hierarchy_id IN NUMBER
+          ,p_prop_label IN VARCHAR2
+          ,p_prop_value IN VARCHAR2
+          ,p_prop_value_clob IN CLOB DEFAULT NULL
+          ,p_vary_by_member_names IN VARCHAR2 DEFAULT NULL
+          ,p_related_line_id IN NUMBER DEFAULT NULL
+          ,x_msg OUT VARCHAR2
+          )
 RETURN VARCHAR2;
+
+
+  -- This API accepts Member name and parent name  
+
+
+  FUNCTION update_hierarchy_prop
+            (p_user_id              IN NUMBER
+            ,p_request_id           IN NUMBER
+            ,p_app_dimension_id     IN NUMBER
+            ,p_parent_member_name   IN VARCHAR2
+            ,p_member_name          IN VARCHAR2
+            ,p_prop_label           IN VARCHAR2
+            ,p_prop_value           IN VARCHAR2
+            ,p_prop_value_clob      IN CLOB     DEFAULT NULL
+            ,p_vary_by_member_names IN VARCHAR2 DEFAULT NULL
+            ,p_related_line_id      IN NUMBER   DEFAULT NULL
+            ,x_msg                 OUT VARCHAR2
+            )
+  RETURN VARCHAR2;
 
 
 ```
@@ -1289,6 +1313,34 @@ If a member in an extended dimension needs to be converted to an Extended Member
              )
   RETURN VARCHAR2;
 
+```
+
+
+## Delete Request
+
+Using this API request can be deleted. This function will return Y if action is successful else N along with Error Message.
+
+
+```sql
+  
+  FUNCTION delete_request 
+            (p_request_id IN NUMBER
+            ,x_msg IN OUT VARCHAR2
+            )
+  RETURN VARCHAR2;
+```
+
+## Cancel Request
+
+Using this API request can be cancelled. This function will return Y if action is successful else N along with Error Message.
+
+```sql
+  
+  FUNCTION cancel_request 
+            (p_request_id IN NUMBER
+            ,x_msg IN OUT VARCHAR2
+            )
+  RETURN VARCHAR2;
 ```
 
 
