@@ -760,6 +760,9 @@ The Following are multiple functions to determine whether a node exists in the a
      If dimension name is NOT specified in parameter 
        then return Member Name and Dimension name both
        For example : SummaryAccounts:Cash~DetailAccounts:Cash101
+       
+     p_list_or_count : If value is COUNT - then it will retrun count 
+                       of members having specific value for a passed property
   */
   FUNCTION get_members_having_prop_value
            (p_app_name                  IN VARCHAR2
@@ -769,7 +772,9 @@ The Following are multiple functions to determine whether a node exists in the a
            ,p_exclude_array_member_name IN VARCHAR2 DEFAULT NULL
            ,p_dim_name                  IN VARCHAR2 DEFAULT NULL
            ,p_append_wildcard           IN VARCHAR2 DEFAULT 'N'
+           ,p_list_or_count             IN VARCHAR2 DEFAULT 'LIST'
            )
+    RETURN VARCHAR2 ;
 
 ```
 
