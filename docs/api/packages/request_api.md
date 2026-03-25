@@ -802,11 +802,44 @@ This API will create a request line for a given member in the Edit mode and chan
               ,p_prop_value         IN VARCHAR2
               ,p_related_line_id    IN NUMBER DEFAULT NULL
               ,p_chk_security       IN VARCHAR2 DEFAULT 'Y'
-              , p_create_for_changed_val_only IN VARCHAR2 DEFAULT 'N'
+              ,p_create_for_changed_val_only IN VARCHAR2 DEFAULT 'N'
               ,x_msg                IN OUT VARCHAR2
              )
   RETURN VARCHAR2;
 
+```
+
+
+### Edit Multiple Properties
+
+This API helps update more than one Property of a member to aprovide performance improvement.
+
+This API opens a member in the Edit Properties action mode if member
+is not already opened in the Edit mode and edits set of given properties
+
+```sql
+
+Parameter p_props_list --> is a list of properties and its values.
+Array Index --> is Property Label and Array Value is Property Value 
+
+Note : Property Value size upto 2k chars. CLOB types props more than 2K chars
+       should not use this API.
+p_create_for_changed_val_only  -> Create Request line only if new property
+                                  value is different from the existing value
+  */
+  FUNCTION create_line_edit_props
+              (p_user_id                     IN NUMBER
+              ,p_request_id                  IN NUMBER
+              ,p_app_dimension_id            IN NUMBER
+              ,p_parent_member_name          IN VARCHAR2 DEFAULT NULL
+              ,p_member_name                 IN VARCHAR2
+              ,p_props_list                  IN ew_global.g_value_tbl
+              ,p_related_line_id             IN NUMBER DEFAULT NULL
+              ,p_chk_security                IN VARCHAR2 DEFAULT 'Y'
+              ,p_create_for_changed_val_only IN VARCHAR2 DEFAULT 'N'
+              ,x_msg                         IN OUT VARCHAR2
+             )
+  RETURN VARCHAR2 ;
 ```
 
 
